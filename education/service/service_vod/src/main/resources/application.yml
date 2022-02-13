@@ -1,0 +1,44 @@
+# 服务端口
+server:
+  port: 8003
+
+#服务名
+spring:
+  application:
+    name: service-vod
+
+
+  servlet:
+    multipart:
+      # 最大上传单个文件大小：默认1M
+      max-file-size: 1024MB
+      # 最大置总上传的数据大小 ：默认10M
+      max-request-size: 1024MB
+
+
+  #nacos 服务地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  #redis 配置信息
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        #最大阻塞等待时间(负数表示没限制)
+        max-idle: 5
+        min-idle: 0
+
+#阿里云API秘钥
+aliyun:
+  vod:
+    file:
+      keyId: LTAI5t6UD93127xNfXfyTGpF
+      keySecret: RCeHCLV9PqB9LbbdpdwZw6LuJ2iY3Q
+

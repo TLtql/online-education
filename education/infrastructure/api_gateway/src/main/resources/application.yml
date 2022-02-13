@@ -1,0 +1,31 @@
+server:
+  port: 8666
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-edu
+          uri: lb://service-edu
+          #uri: http://localhost:8001
+          predicates:
+            - Path=/eduservice/** # 路径匹配
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+            - Path=/ossservice/** # 路径匹配
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/userservice/** # 路径匹配
+        - id: service-vod
+          uri: lb://service-vod
+          predicates:
+            - Path=/vodService/** # 路径匹配
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848

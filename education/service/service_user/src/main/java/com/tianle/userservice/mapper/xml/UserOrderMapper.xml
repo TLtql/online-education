@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianle.userservice.mapper.UserOrderMapper">
+
+    <select id="selectListByUserId" resultType="com.tianle.userservice.entity.vo.UserOrderDTO">
+        SELECT
+            a.id,a.course_id AS courseId,a.point,a.status,a.gmt_create AS gmtCreate,
+            b.title,b.cover,c.name AS teacherName
+        FROM
+            user_order a
+            LEFT JOIN edu_course b ON a.course_id = b.id
+            LEFT JOIN edu_teacher c ON b.teacher_id = c.id
+        WHERE
+            a.user_id = #{userId} and a.is_deleted = false
+    </select>
+</mapper>

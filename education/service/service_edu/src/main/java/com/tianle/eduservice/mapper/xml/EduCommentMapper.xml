@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianle.eduservice.mapper.EduCommentMapper">
+
+    <select id="getCommentList" resultType="com.tianle.eduservice.entity.vo.front.FrontCommentVo">
+        SELECT
+            a.id,a.content,a.gmt_create AS gmtCreate,
+            b.id AS courseId,b.title,b.cover
+        FROM
+            edu_comment a
+            LEFT JOIN edu_course b ON a.course_id = b.id
+        WHERE
+            a.member_id = #{userId} AND a.is_deleted = false
+    </select>
+</mapper>
