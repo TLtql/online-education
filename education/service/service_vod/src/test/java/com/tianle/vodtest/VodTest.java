@@ -20,11 +20,11 @@ import java.util.List;
 public class VodTest {
     @Test
     public void testVodInfo() throws Exception{
-        DefaultAcsClient client = InitObject.initVodClient("LTAI5t6UD93127xNfXfyTGpF", "RCeHCLV9PqB9LbbdpdwZw6LuJ2iY3Q");
+        DefaultAcsClient client = InitObject.initVodClient("", "");
         GetPlayInfoRequest request = new GetPlayInfoRequest();
 
         GetPlayInfoResponse response = new GetPlayInfoResponse();
-        request.setVideoId("1b82396a95da49b78d604101e15606e2");
+        request.setVideoId("");
         response = client.getAcsResponse(request);
 
         List<GetPlayInfoResponse.PlayInfo> playInfoList = response.getPlayInfoList();
@@ -38,7 +38,7 @@ public class VodTest {
     }
     @Test
     public void testAuth() throws Exception{
-        DefaultAcsClient client = InitObject.initVodClient("LTAI5t6UD93127xNfXfyTGpF", "RCeHCLV9PqB9LbbdpdwZw6LuJ2iY3Q");
+        DefaultAcsClient client = InitObject.initVodClient("", "");
         GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
         GetVideoPlayAuthResponse response = new GetVideoPlayAuthResponse();
         request.setVideoId("e1865678cfda42869cb6afa695091bd9");
@@ -51,13 +51,13 @@ public class VodTest {
 
     @Test
     public void testUpload(){
-        UploadVideoRequest request = new UploadVideoRequest("LTAI5t6UD93127xNfXfyTGpF", "RCeHCLV9PqB9LbbdpdwZw6LuJ2iY3Q",
-                "测试标题", "D:/JAVA/学习资料/尚硅谷--谷粒学院/项目资料/1-阿里云上传测试视频/6 - What If I Want to Move Faster.mp4");
+        UploadVideoRequest request = new UploadVideoRequest("", "",
+                "测试标题", "");
         /* 可指定分片上传时每个分片的大小，默认为2M字节 */
         request.setPartSize(2 * 1024 * 1024L);
         /* 可指定分片上传时的并发线程数，默认为1，(注：该配置会占用服务器CPU资源，需根据服务器情况指定）*/
         request.setTaskNum(1);
-        request.setStorageLocation("outin-a211afe06ad111ecba2b00163e038793.oss-cn-beijing.aliyuncs.com");
+        request.setStorageLocation("");
         request.setApiRegionId("cn-beijing");
         UploadVideoImpl uploader = new UploadVideoImpl();
         UploadVideoResponse response = uploader.uploadVideo(request);

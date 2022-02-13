@@ -48,7 +48,7 @@ public class VodServiceImpl implements VodService {
             InputStream inputStream = file.getInputStream();
             UploadStreamRequest request = new UploadStreamRequest(accessKeyId, accessKeySecret, title, fileName, inputStream);
             /* 存储区域(可选) */
-            request.setStorageLocation("outin-a211afe06ad111ecba2b00163e038793.oss-cn-beijing.aliyuncs.com");
+            request.setStorageLocation("");
             /* 点播服务接入点 */
             request.setApiRegionId("cn-beijing");
             UploadVideoImpl uploader = new UploadVideoImpl();

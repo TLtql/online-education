@@ -10,7 +10,7 @@ import com.tencentcloudapi.common.Credential;
 /**
  * @Author: Tianle
  * @Date: 2022/1/7 17:56
- * @Description:
+ * @Description: 腾讯云短信服务
  */
 @Service
 public class SmsServiceImpl implements SmsService {
@@ -19,24 +19,24 @@ public class SmsServiceImpl implements SmsService {
         try {
             String phoneNum = "+86" + phone;
             //实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey
-            String secretId = "AKIDTklX2FBqFNDm56tQiiRt4zd05vUmnX0C";
-            String secretKey = "xjFUS8ZjcEaeRxDCuOcaHhqjKehUzDAq";
+            String secretId = "your secretId";
+            String secretKey = "your secretKey";
             Credential cred  = new Credential(secretId, secretKey);
 
             //实例化要请求产品(以sms为例)的client对象
-            SmsClient client = new SmsClient(cred, "ap-guangzhou");
+            SmsClient client = new SmsClient(cred, "your client对象");
             // 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
             SendSmsRequest req = new SendSmsRequest();
             /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
-            String sdkAppId = "1400621135";
+            String sdkAppId = "your sdkAppId";
             req.setSmsSdkAppId(sdkAppId);
 
             /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
-            String signName = "java学习交流区";
+            String signName = "";
             req.setSignName(signName);
 
             /* 模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
-            String templateId = "1270339";
+            String templateId = "";
             req.setTemplateId(templateId);
 
             /* 下发手机号码，采用 E.164 标准，+[国家或地区码][手机号]

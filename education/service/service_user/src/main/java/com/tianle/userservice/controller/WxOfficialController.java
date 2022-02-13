@@ -106,8 +106,8 @@ public class WxOfficialController {
                     "&secret=%s";
 
             String accessTokenUrl = String.format(baseAccessTokenUrl,
-                    "wxb83daaedb6da43f5",
-                    "1137d1a6bfc7be98422cb833de486eab");
+                    "your appid",
+                    "your key");
             String jsonStr = HttpClientUtils.get(accessTokenUrl);
             HashMap<String,String> map = new Gson().fromJson(jsonStr, HashMap.class);
             String access_token = map.get("access_token");

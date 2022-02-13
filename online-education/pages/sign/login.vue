@@ -141,10 +141,10 @@
         var obj = new WxLogin({
         	self_redirect:false,
         	id:"wx_login",
-        	appid: "wxed9954c01bb89b47",
+        	appid: "your appid",
         	scope: "snsapi_login",
         	state: "state",
-        	redirect_uri: encodeURIComponent("http://localhost:8160/api/user/wx/callback")
+        	redirect_uri: encodeURIComponent("your redirect_uri")
         });
       },
       // 公众号动态码登录
